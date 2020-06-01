@@ -1,0 +1,11 @@
+p {
+    /*设置字体大小为50像素*/
+    font-size: 50px;
+    /*设置段落p的背景色*/
+    background-color: silver;
+    color: springgreen;
+}
+
+span {
+    font-size: 28px;
+}

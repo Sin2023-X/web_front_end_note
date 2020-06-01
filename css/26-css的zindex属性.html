@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zindex</title>
+    <style>
+        .ab {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            border: 1px solid magenta;
+        }
+        /* z-index最大的在最上层 */
+        .d1 {
+            /* 中间层 */
+            z-index: 100;
+            left: 100px;
+            top: 100px;
+            background-color: #309;
+        }
+        .d2 {
+            /* 最高层 */
+            z-index: 200;
+            background-color: #732;
+        }
+        .d3 {
+            /* 最底层 */
+            z-index: 4;
+            left: 200px;
+            top: 200px;
+            background-color: #a08;
+        }
+    </style>
+</head>
+<body>
+    <div class="ab d1"></div>
+    <div class="ab d2"></div>
+    <div class="ab d3"></div>
+</body>
+</html>

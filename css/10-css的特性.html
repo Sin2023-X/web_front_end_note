@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css的特性：层叠性、继承性</title>
+    <style>
+        p {
+            color: lightslategray;
+        }
+        /* a标签不继承父标签 */
+        a {
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        在ViewModel类中创建一个依赖属性：IsClose。在RelayCommand中执行的时候，仅仅修改IsClose=true，并不去实现关闭窗口（不去操作Window）。
+创建一个WindowAttachedBehavior类，该类会定义一个IsCloseView的附加属性。当这个属性的变化成true的时候，会实现关闭窗口（它负责操作Window）。（注意该类中的属性和方法都是静态的）
+在View里用下面的方式绑定ViewModel的依赖属性IsClose，并触发附加属性IsCloseView的变化。实现了窗口的关闭，并解耦了ViewMode和View。
+        <span>span标签1</span>
+        <a href="#">link</a>
+    </p>
+    <span>span标签2</span>
+</body>
+</html>

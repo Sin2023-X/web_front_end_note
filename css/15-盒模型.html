@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒模型</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            /* 边框宽度，样式（solid实线、double双实线、dotted点、dashed虚线），颜色 */
+            border: 50px dashed purple;
+            background-color: gold;
+            /* 设置内边距100像素，边框和内容区域的距离 */
+            padding: 100px;
+            /* 外边距100像素，边框和其他元素之间的距离 */
+            margin: 100px;
+            /* top right bottom left */
+            border-color: red yellow blue green;
+        }
+        table {
+            border: 2px solid red;
+            /* 边框折叠合并 */
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        this is content.
+    </div>
+    <table border="2">
+        <tr>
+            <td>12</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>32</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>42</td>
+            <td>12</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角</title>
+    <style>
+        body, div {
+            padding: 0;
+            margin: 0;
+        }
+
+        .bd {
+            margin: 100px auto;
+            width: 0px;
+            /* height: 0px; */
+            border: 100px;
+            border-color: transparent transparent #777;
+            border-style: dashed dashed solid;
+        }
+        .main {
+            width: 100px;
+            margin: 100px auto;
+        }
+        .btn1 {
+            width: 100px;
+            height: 26px;
+            background-color: #90c;
+            border: 1px solid #a3f;
+            text-align: center;
+            line-height: 26px;
+            color: #eee;
+            border-radius: 5px;
+            position: relative;
+        }
+        .btn1::before {
+            /* 伪元素必须有content属性 */
+            content: " ";
+            display: block;
+            width: 0px;
+            height: 0px;
+            /* background-color: #0f0; */
+            position: absolute;
+            left: 35%;
+            top: -18px;
+            border: 9px;
+            border-color: transparent transparent #90c;
+            border-style: dashed dashed solid;
+        }
+        .btn2 {
+            border: 1px solid purple;
+            width: 100px;
+            height: 40px;
+            margin: 100px auto;
+            text-align: center;
+            line-height: 40px;
+            position: relative;
+        }
+        .btn2::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 35%;
+            top: -18px;
+            border: 9px;
+            border-color: transparent transparent purple;
+            border-style: dashed dashed solid;
+        }
+        .btn2::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 37%;
+            top: -14px;
+            border: 7px;
+            border-color: transparent transparent white;
+            border-style: dashed dashed solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="bd">
+
+    </div>
+    <div class="main">
+        
+        <div class="btn1">气泡按钮</div>
+        <div class="btn2">气泡三角形</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            color: red;
+        }
+        li {
+            background-color: rosybrown;
+        }
+        #a1 {
+            background-color: royalblue;
+        }
+        #li2 {
+            background-color: saddlebrown;
+        }
+        /*id 选择器*/
+    </style>
+</head>
+<body>
+    <h1>MVVM中View与ViewModel之间的交互</h1>
+    <p>1， View可以通过DataContext访问ViewModel
+
+        除了Binding以外，在一些Event触发的时候，在behind code里用这种方法，直接访问ViewModel。
+        
+        
+        
+        2， ViewModel访问View
+        
+        直接设定一个View接口的成员变量，在创建ViewModel的时候，将View设置到该成员变量上。
+        
+        但这么做不好，（But doing this we would be breaking the sanctity of MVVM.
+    </p>
+    <ul>
+        <li id="a1">View可以通过DataContext访问ViewModel</li>
+        <li id="li2"> ViewModel访问View</li>
+        <li>WPF - Attached behaviors (Closing View from ViewModel)</li>
+    </ul>
+</body>
+</html>

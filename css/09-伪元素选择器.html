@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>为元素选择器</title>
+    <style>
+        span:first-child {
+            color: red;
+        }
+        p:first-child {
+            color: green;
+        }
+        /* 段落的首个字符 */
+        p:first-letter {
+            font-size: 50px;
+            color: green;
+        }
+
+        p::first-line {
+            color: greenyellow;
+        }
+
+        #d1::before {
+            content: "+++++++++++";
+        }
+        #d1::after, #s1::after {
+            content: "------------";
+        }
+
+        #d1>span {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <span id="s1">1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+    <p>
+        直接设定一个View接口的成员变量，在创建ViewModel的时候，将View设置到该成员变量上。
+    </p>
+    
+</body>
+</html>

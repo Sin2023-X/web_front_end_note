@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锚链接</title>
+</head>
+<body>
+    <h1>基本特点</h1>
+    <ul>
+        <li>
+            <a href="#1">1</a>
+            <a href="#2">2</a>
+            <a href="#3">3</a>
+            <a href="#4">4</a>
+            <a href="#5">5</a>
+        </li>
+    </ul>
+    <!-- br*n可以一次创建n个br -->
+    <p id="1">1.namespace ScrollTest
+        {
+            public partial class TestWindow : Window
+            {
+                public TestWindow()
+                {
+                    InitializeComponent();
+                }
+        
+                private void OnLoaded(object sender, RoutedEventArgs e)
+                {
+                    _scroll.ScrollToVerticalOffset((DataContext as VM).ScrollOffset);
+                }
+        
+                private void OnClosing(object sender, CancelEventArgs e)
+                {
+                    (DataContext as VM).ScrollOffset = _scroll.VerticalOffset;
+                }
+            }
+        
+            public class VM
+            {
+                public double ScrollOffset { get; set; }
+            }
+            
+        }
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </p>
+    <p id="2">2.简单总结下： （利用附加属性和依赖属性来实现的）
+
+        在ViewModel类中创建一个依赖属性：IsClose。在RelayCommand中执行的时候，仅仅修改IsClose=true，并不去实现关闭窗口（不去操作Window）。
+        创建一个WindowAttachedBehavior类，该类会定义一个IsCloseView的附加属性。当这个属性的变化成true的时候，会实现关闭窗口（它负责操作Window）。（注意该类中的属性和方法都是静态的）
+        在View里用下面的方式绑定ViewModel的依赖属性IsClose，并触发附加属性IsCloseView的变化。实现了窗口的关闭，并解耦了ViewMode和View。
+        ————————————————
+        版权声明：本文为CSDN博主「jfyy」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+        原文链接：https://blog.csdn.net/jfyy/java/article/details/81060960</p>
+    <p id="3">3. 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </p>
+    <p id="4">4.
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </p>
+    <p id="5">5.</p>
+</body>
+</html>

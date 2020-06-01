@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 标签指定式选择器 既是li 又是current class的*/
+        li.current {
+            color: hotpink;
+        }
+        /* 后代选择器 class为news下的标签的子标签 li a*/
+        .news li a {
+            font-size: 18px;
+        }
+        /* 并集选择器 .fnews a 和 .snews a*/
+        .fnews a, .snews a {
+            color: cadetblue;
+        }
+        /* 子元素选择器 p标签的子标签strong*/
+        p > strong {
+            color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>
+            <span>duan luo 1</span>
+            <span><strong>duan luo 2</strong></span>
+            <span>duan luo 3</span>
+            <strong>strong</strong>
+        </p>
+    </div>
+</body>
+</html>

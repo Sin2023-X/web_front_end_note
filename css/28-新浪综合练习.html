@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新浪综合练习</title>
+    <style>
+        body, div, ul, li {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            font: 12px/20px "Microsoft YaHei", SimSun;
+        }
+        /* 去掉列表默认的样式 */
+        ul, li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: #4c4c4c;
+        }
+        .topnav {
+            border-top: 4px solid #ff8500;
+            border-bottom: 1px solid #edeef0;
+            height: 42px;
+            line-height: 42px;
+        }
+        .main {
+            width: 960px;
+            margin: auto;
+        }
+        .tn-nav {
+            float: left;
+
+        }
+        .tn-persion {
+            float: right;
+        }
+        .tn-nav > li, .tn-persion > li {
+            float: left;
+            padding: 0 15px;
+        }
+        .tn-nav li:hover, .tn-nav li a:hover, .tn-persion li:hover, .tn-persion li a:hover {
+            color: #ff8500;
+            background-color: #edeef0;
+        }
+        /* 微博弹出层 */
+        .weibo-box {
+            display: none;
+            /* 设置弹出层为绝对定位，防止对默认文档流产生干扰 */
+            position: absolute;
+        }
+        .weibo-box li {
+            border: 1px solid #ff8500;
+            width: 104px;
+            height: 31px;
+            line-height: 31px;
+            border-top: none;
+            margin-left: -15px;
+            padding: 0 15px;
+        }
+        .weibo:hover .weibo-box {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <div class="main">
+            <ul class="tn-nav">
+                <li><a href="#">新浪首页</a></li>
+                <li><a href="#">手机新浪网</a></li>
+                <li><a href="#">移动客户端</a></li>
+            </ul>
+            <ul class="tn-persion">
+                <li><a href="#">登录</a></li>
+                <li class="weibo">
+                    <a href="#">微博</a>
+                    <ul class="weibo-box">
+                        <li><a href="#">私信</a></li>
+                        <li><a href="#">评论</a></li>
+                        <li><a href="#">@我</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">博客</a></li>
+                <li><a href="#">邮箱</a></li>
+                <li><a href="#">网站导航</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css优先级</title>
+    <style>
+        body {
+            color: maroon;
+        }
+        #atc {
+            font-size: 20px;
+            color: red;
+        }
+        p {
+            color: blue;
+            font-size: 100px;
+        }
+ /* id > 类(伪类) > 标签 > 继承 > 默认  */
+ /* 一个类选择器优先级 = 256个标签选择器 */
+    </style>
+    <link rel="stylesheet" href="t.css">
+</head>
+<body>
+    <p style="color: blueviolet;" id="atc" >在mvvm模式中,,,vm是否能直接获得dom元素,,,,还是说vw层可以存储一个dom引用的比如属性id,,,那么,,在控制层变化的时候更新vm的那个属性id,,,然后用他内建的一套更新view层.....还是说,vm层不能存任何和界面dom有关的东西,vm渲染出来的虚拟节点或者html片端都要交给control层来渲染view层呢???不知道是哪一种</p>
+</body>
+</html>

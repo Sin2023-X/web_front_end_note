@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>相对定位</title>
+    <style>
+        body, div {
+            padding: 0;margin: 0;
+        }
+
+        div {
+            border: 1px solid purple;
+        }
+        .rl {
+            width: 200px;
+            height: 200px;
+            /* 设置了相对定位之后，标签的css就可以设置left、right、top、bottom的css属性 */
+            position: relative;
+            /* 
+            左边相对于元素原来的位置 10px
+            上边相对于元素原来的位置 20px
+            */
+            left: 10px;
+            top: 20px;
+        }
+        .ab {
+            position: absolute;
+            left: 100px;
+            top: 20px;
+            height: 100px;
+            width: 200px;
+            background-color: #cda;
+
+        }
+        .parent {
+            width: 200px;
+            height: 300px;
+            background-color: #dac;
+            /* 如果父容器设置了relative后，那么子元素设置了absoulte定位，那子元素按照父容器进行绝对定位 
+            要根据谁进行绝对定位 就把谁设置为relative
+            子绝父相
+            */
+            position: relative;
+        }
+        .f {
+            /* 固定定位 */
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            height: 100px;
+            width: 100px;
+            background-color: #09c;
+        }
+    </style>
+</head> 
+<body>
+    <div class="rl">
+        div div
+    </div>
+    <div class="parent">
+        <div class="ab">
+            绝对定位
+        </div>
+    </div>
+    <div class="f">
+        绝对定位
+    </div>
+</body>
+</html>

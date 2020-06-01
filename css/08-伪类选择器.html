@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪类选择器</title>
+    <style>
+        a:link {
+            color: red;
+        }
+        /* 当链接被访问过了之后，会添加伪类 visited */
+        a:visited {
+            color: saddlebrown;
+        }
+        /* 当鼠标悬停于元素上面的时候，会自动添加伪类 hover */
+        a:hover {
+            color: white;
+            background-color: brown;
+        }
+        /* 当链接被点击，但鼠标没有放开时，会添加伪类 active */
+        a:active {
+            color: darkgreen;
+        }
+        /* 以上伪类添加顺序 LoVe HAte， LVHA */
+
+        /* 当获取到焦点时，自动添加伪类 focus */
+        input:focus {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">首页</a>
+    <a href="#">产品</a>
+    <a href="#">新闻</a>
+    <a href="/">体育</a>
+
+    <input type="text" name="" id="">
+</body>
+</html>
