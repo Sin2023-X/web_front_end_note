@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = 9,
+            b;
+        var c = {
+                age: 9
+            },
+            d;
+        b = a;
+        b = 19;
+        console.log(a);
+        console.log(b);
+
+        d = c; //d指向c的地址,引用类型的赋值是将堆上地址进行了复制
+        d.age = 20;
+
+        function max() {
+            // js方法可以不写形参，传入实参的时候可以传入任意数量
+            // arguments可以获取传入的所有实参
+            if (arguments.length < 0) {
+                return NaN;
+            }
+            var max = arguments[0];
+            for (var i in arguments) {
+                if (max < arguments[i]) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+
+        var maxNum = max(5, 10, 15, 90, 50, 30, 60, 55, 71, 52, 84, 108);
+        console.log(maxNum);
+
+        // var a1 = 10;
+
+        // function f1() {
+        //     console.log(a1);
+        //     var a1 = 20;
+        //     console.log(a1);
+        // }
+        // f1();
+        // console.log(a1);
+        // if (1) {
+        //     var b = 1;
+        // }
+        // console.log(b);
+
+        f2();
+        console.log(b1);
+        console.log(c1);
+        console.log(d1);
+        console.log(a1);
+
+        function f2() {
+            d1 = 20;
+            var a1 = b1 = c1 = 10;
+            console.log(a1);
+            console.log(b1);
+            console.log(c1);
+        }
+    </script>
+</body>
+
+</html>

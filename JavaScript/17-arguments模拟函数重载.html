@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arguments模拟函数重载</title>
+</head>
+
+<body>
+    <script>
+        // arguments模拟函数重载
+        function React() {
+            this.toString = function() {
+                console.log('width: ' + this.width + ' height: ' + this.height);
+                return 'width: ' + this.width + ' height: ' + this.height;
+            };
+
+            this.logout = function() {
+
+            };
+
+            switch (arguments.length) {
+                case 1:
+                    this.width = arguments[0];
+                    this.height = arguments[0];
+                    break;
+                case 2:
+                    this.width = arguments[0];
+                    this.height = arguments[1];
+                default:
+                    break;
+            }
+        }
+
+        var r1 = new React(5);
+        r1.logout();
+        r1.toString();
+        var r2 = new React(5, 10);
+        r2.toString();
+    </script>
+</body>
+
+</html>

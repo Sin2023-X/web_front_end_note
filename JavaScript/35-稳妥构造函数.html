@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35-稳妥构造函数</title>
+</head>
+
+<body>
+    <script>
+        // 稳妥构造函数模式：实现使用new构造一个对象和不实用new构造函数对象效果一致
+        function Cat() {
+            var o = {};
+            o.age = 10;
+            o.name = 'Tom';
+            o.run = function() {
+                console.log(o.name + ' running...');
+
+            };
+            return o;
+        }
+
+        var c1 = new Cat();
+        var c2 = Cat();
+        // 缺点：不能溯源 原型、构造函数、对象的方法内存不能共享，浪费内存
+    </script>
+</body>
+
+</html>

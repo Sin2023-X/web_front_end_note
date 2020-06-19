@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42-模块化演变</title>
+</head>
+
+<body>
+    <script>
+        // 42-模块化演变
+
+        function demo() {
+            var a = b = c = 9; // a是局部变量， b、c是全局变量
+            // var 只作用于a， 不作用于b、c
+        }
+        demo();
+        console.log(b);
+
+
+        // 尝试解决 命名冲突问题
+        // 1、命名空间
+        var Shop = {}; //顶层命名空间
+        Shop.User = {}; //电商的用户模块
+        Shop.User.UserList = {}; //用户列表页面模块
+        Shop.User.UserList.length = 19; //用户一共有19个
+
+        Shop.User.UserDetial = {};
+        Shop.User.UserDetial.length = 20;
+
+        // => 给单个文件里面定义的局部变量都 变成 局部作用域里面的变量
+        // 2、局部作用域
+        (function() {
+            var a = 9;
+        })();
+
+        (function() {
+            var a = 'sss';
+        })();
+
+        // 局部作用域和命名空间的用法减少了变量冲突的可能性
+
+        // 3、希望能把自己基类的很多工具疯长一个整体的框架
+        // btn 、form、animate
+
+        // zxc.js
+        (function(w) {
+            if (!w.zxc) {
+                w.zxc = {};
+            }
+            var zxc = {};
+            zxc.Btn = {
+                getValue: function() {
+                    return value;
+                },
+
+                setValue: function(str) {
+                    value = str;
+                }
+            };
+            w.zxc = zxc; // 把zxc对象传递给window全局变量
+        })(window || {});
+
+        // zxc.animate.js
+        (function(w) {
+            if (!w.zxc) {
+                w.zxc = {};
+            }
+            w.zxc.animate = {};
+        })(window || {});
+
+        // zxc.form.hs
+        (function(w) {
+            if (!w.zxc) {
+                w.zxc = {};
+            }
+            w.zxc.form = {};
+        })(window || {});
+    </script>
+</body>
+
+</html>

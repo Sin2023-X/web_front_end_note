@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var fn1 = 1,
+            fn2 = 1,
+            n = 21,
+            result;
+        for (var i = 3; i < n; i++) {
+            result = fn1 + fn2;
+            fn1 = fn2;
+            fn2 = result;
+            console.log("fn1 : " + fn1 + " -------- fn2 : " + fn2);
+        }
+        console.log("result f(20) = " + result);
+    </script>
+</body>
+
+</html>

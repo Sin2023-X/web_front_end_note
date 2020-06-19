@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>38-原型式继承</title>
+</head>
+
+<body>
+    <script>
+        // 38-原型式继承
+        function object(o) {
+            function F() {}
+            F.prototype = o; // 让空函数的原型指向o对象
+            return new F(); // 创建一个f实例。f的内部原型指向o对象
+        }
+
+        var m = {
+            age = 19,
+            name: 'le',
+            friends: ['s', 'd']
+        };
+
+        var m1 = object(m);
+    </script>
+</body>
+
+</html>

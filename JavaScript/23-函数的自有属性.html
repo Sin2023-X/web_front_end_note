@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23-函数的自有属性</title>
+</head>
+
+<body>
+    <script>
+        // 23-函数的自有属性
+        function fun1(a, b) {
+            console.log(a + b);
+        }
+        console.log(fun1.length); //函数都有默认的length属性=形参的个数
+        // fun1是函数也是一个对象，可以当成对象使用
+        fun1.age = 19;
+        console.log(fun1.age);
+    </script>
+</body>
+
+</html>

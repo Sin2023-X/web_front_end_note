@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数调用模式</title>
+</head>
+
+<body>
+    <script>
+        function Dog() {
+            this.age = 19;
+            console.log(this);
+        }
+
+        Dog(); // 函数执行模式 =》 window
+        var dog = new Dog(); // 构造函数调用模式 =》 dog对象
+        Dog.call(null);
+    </script>
+</body>
+
+</html>

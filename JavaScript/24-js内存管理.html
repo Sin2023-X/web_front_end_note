@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24-js内存管理</title>
+</head>
+
+<body>
+    <script>
+        // 24-js内存管理
+        var m = 0,
+            n = 19;
+
+        add(m, n);
+
+        function add(a, b) {
+            a++;
+            var c = a + b;
+            return c;
+        }
+    </script>
+</body>
+
+</html>

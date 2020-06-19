@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37-组合继承模式</title>
+</head>
+
+<body>
+    <script>
+        // 37-组合继承模式
+        // 组合的原型继承和借用构造函数继承
+
+        // 父类
+        function Animal(age, name) {
+            this.age = age;
+            this.name = name;
+            this.foods = ['a', 'd'];
+        }
+
+        Animal.prototype.run = function() {
+            console.log(this.name + ' running');
+        }
+
+        // 定义子类
+        function Cat(name, age) {
+            // 第一次执行父类的构造函数
+            Animal.call(this, age, name); // 借用父类的构造函数给子类创建实例
+        }
+        // 第二次执行父类的构造函数
+        Cat.prototype = new Animal(); // 组合原型继承模式
+        Cat.prototype.constructor = Cat;
+        var c = new Cat('Tom', 3);
+    </script>
+</body>
+
+</html>

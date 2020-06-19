@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-call和apply调用模式</title>
+</head>
+
+<body>
+    <script>
+        // 15-call和apply调用模式
+        function sum(a, b) {
+            console.log(this);
+            return a + b;
+        }
+
+        var t = {
+            name: 'tom'
+        };
+
+        var m = sum.call(t, 2, 3);
+        console.log(m);
+
+        var m2 = sum.apply(t, [4, 3]);
+        console.log(m2);
+    </script>
+</body>
+
+</html>

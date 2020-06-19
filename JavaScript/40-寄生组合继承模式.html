@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40-寄生组合继承模式</title>
+</head>
+
+<body>
+    <script>
+        // 40-寄生组合继承模式(组合寄生模式和借用构造函数模式)
+        function Animal(age, name) {
+            this.age = age;
+            this.name = name;
+            this.foods = ['d', 'a'];
+        }
+
+        Animal.prototype.run = function() {
+            console.log(this.name + ' running...');
+        }
+
+        function Cat(age, name) {
+            // 借用构造函数继承模式来构建对象的实例属性
+            Animal.call(this, age, name);
+
+        }
+
+        Cat.prototype = inheritFrom(Animal.prototype);
+
+        var c = new Cat(10, 'Tom');
+
+        function inheritFrom(o) {
+            var t = object(o);
+            t.constructor = Cat; // 把Cat原型的构造函数指回Cat的构造函数
+            return t;
+        }
+
+        function object(o) {
+            function F() {};
+            F.prototype = o;
+            return new F();
+        }
+    </script>
+</body>
+
+</html>

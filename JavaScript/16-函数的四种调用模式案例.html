@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16-函数的四种调用模式案例</title>
+</head>
+
+<body>
+    <script>
+        // 16-函数的四种调用模式案例
+        // 定义按钮类，要求按钮类的构造函数可以接受参数初始化按钮的宽度、高度、坐标xy
+        function Btn(width, height, x, y) {
+            this.width = width;
+            this.height = height;
+            this.x = x;
+            this.y = y;
+        }
+
+        // 求数组最小值
+        var m = Math.min.apply(null, [2, 9, 33]);
+        console.log(m);
+
+        // 类数组转换成真正的数组
+        var t = {};
+        t[0] = 1;
+        t[1] = true;
+        t[2] = 'tt';
+        t.length = 3;
+        var k = Array.prototype.slice.call(t, 0);
+        // t通过slice方法把类数组转换成数组
+        console.log(k);
+    </script>
+</body>
+
+</html>
