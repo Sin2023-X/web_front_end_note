@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>46-js异常处理</title>
+</head>
+
+<body>
+    <script>
+        try {
+            add('21', 32);
+        } catch (e) {
+            console.dir(e);
+        }
+
+
+        function add(a, b) {
+            if (typeof(a) != 'number') {
+                var e = new Error();
+                e.message = 'error: 传入参数不是整数类型';
+                e.name = '传入参数类型错误';
+                throw e;
+            }
+        }
+    </script>
+</body>
+
+</html>

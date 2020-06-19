@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>44-正则的exec方法</title>
+</head>
+
+<body>
+    <script>
+        // 44-正则的exec方法
+        var str = '12,34,56';
+        var exp = /\d{2}/g
+
+        var list = exp.exec(str);
+        // console.log(list);
+        var tmp;
+        /*exec方法：如果没有匹配项那么就会返回null
+                   如果匹配到，返回一个数组 
+                   索引0：即是获得的字符串
+                   index：匹配开始的索引
+                   input：原始字符串
+        */
+        while (tmp = exp.exec(str) != null) {
+            console.log(tmp[0]);
+            console.log(exp.lastIndex); // 当前匹配完，下一次匹配开始的位置
+        }
+
+        // 如果有分组：
+        var str2 = '12abc,34,fde,45asf';
+        var exp2 = /\d{2}(\w)(\w+)/g;
+        console.log(exp2.exec(str2));
+    </script>
+</body>
+
+</html>

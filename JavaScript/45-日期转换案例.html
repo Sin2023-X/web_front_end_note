@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日期转换案例</title>
+</head>
+
+<body>
+    <script>
+        var str = '1392945632000,mss,Date(1392945632000)';
+
+        var d = 'new ' + /Date\(\d+\)/g.exec(str)[0];
+        console.log(d);
+
+        var date = str.replace(/.*(Date\(\d+\)).*/g, 'new $1');
+        console.log(date);
+
+        var t = eval(date);
+        console.log(t);
+
+        // 将'12,34,56'变为'"12","34","56"'
+        var str = '12,34,56';
+        var ns = str.replace(/\d{2}/g, '"$&"');
+        console.log('ns : ' + ns);
+    </script>
+</body>
+
+</html>
