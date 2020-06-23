@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1234567</title>
+</head>
+
+<body>
+    <script>
+        var intervalId = setInterval(() => {
+            // 拿到当前页面的title
+            var oldTitle = document.title;
+
+            // 拿到当前页面title的最后一个字符
+            // slice方法可以接受两个参数
+            // 第一个参数：截取字符串起始的位置，第二个参数是：结束位置
+            // slice方法不影响原始字符串，截取到结束位置前一个元素
+            var firstChar = oldTitle.slice(0, 1);
+            var otherStr = oldTitle.slice(1, oldTitle.length);
+            document.title = otherStr + firstChar;
+        }, 500);
+
+        setTimeout(() => {
+            clearInterval(intervalId);
+        }, 5000);
+    </script>
+</body>
+
+</html>
