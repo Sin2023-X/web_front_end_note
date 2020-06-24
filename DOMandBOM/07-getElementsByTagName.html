@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getElementsByTagName</title>
+</head>
+
+<body>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <h1>hello world</h1>
+    <div class="tem">xxxxxx</div>
+
+    <script>
+        // 把页面中所有的p标签选择出来
+        var array = document.getElementsByTagName('p');
+        // 上面方法返回HTMLCollection集合对象，是一个伪数组
+        // array -> HTMLCollection -> Object.prototype
+        console.dir(array);
+        for (let i = 0; i < array.length; i++) {
+            console.log(array[i].innerHTML);
+        }
+    </script>
+</body>
+
+</html>

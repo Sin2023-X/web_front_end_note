@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-getElementById案例</title>
+</head>
+
+<body>
+    <!-- 快速创建： p#p${段落$}*3 -->
+    <p id="p1">段落1</p>
+    <p id="p2">段落2</p>
+    <p id="p3">段落3</p>
+
+    <div class="1" id="d1">div</div>
+    <!-- 获得段落2的标签对象 -->
+    <script>
+        // 05-getElementById案例
+        var elementP = document.getElementById('p2');
+        console.log(elementP.title);
+        // 内部原型:
+        //  elementP -> HTMLParagraphElement(段落标签的原型) -> HTMLElement(所有HTML标签的基类接口) -> Element -> Node -> EventTarget -> Object -> null
+
+        var d1 = document.getElementById('d1');
+        // d1 -> HTMLDivElement
+
+        // 一般情况下如果函数没有具体的值，返回null
+        var d2 = document.getElementById('ddddd');
+        console.log(d2); // null
+    </script>
+</body>
+
+</html>

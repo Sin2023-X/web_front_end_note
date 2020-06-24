@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08-HTMLCollection接口详解</title>
+</head>
+
+<body>
+    <p name="p1">bq1</p>
+    <p name="p2">bq2</p>
+    <p name="p3">bq3</p>
+    <div class="pss1">hi,1</div>
+    <div class="pss2">hi,2</div>
+    <div class="pss3">hi,3</div>
+
+    <script>
+        // 把所有标签都获取出来
+        var all = document.getElementsByTagName('*');
+        // all -> HTMLCollection
+        for (let i = 0; i < all.length; i++) {
+            console.log(all[i]);
+        }
+        var itme0 = all.item(0); // 相当于：all[0];
+        var p1 = all.namedItem('p1'); // 相当于：all['p1'];
+        // HTMLCollection：动态集合。当标签发生变化的时候，HTMLCollection会自动更新同步。
+        // HTMLCollection：item()通过标签的索引获取标签对象Element
+        // HTMLCollection：nameItem()通过标签的属性名获得对象Element
+    </script>
+</body>
+
+</html>

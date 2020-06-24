@@ -13,6 +13,7 @@
         function Animal(name, age) {
             this.name = name;
             this.age = age;
+            this.foods = ['a', 'b', 's'];
         }
 
         Animal.prototype.run = function() {
@@ -30,6 +31,7 @@
 
         var c1 = new Cat(10, 'Tom');
         c1.run();
+        c1.foods.push('v');
         /* 
             问题：
                 1.子类的构造函数的参数没法传递给父类的构造函数

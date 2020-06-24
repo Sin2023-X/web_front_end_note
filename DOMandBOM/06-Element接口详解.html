@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element接口详解</title>
+</head>
+
+<body>
+    <div id="d1" class="dc" nl="dsnl">
+        <span>hello</span>
+        <p>runtime对注册的类，会进行布局，会将 weak 对象放入一个 hash 表中。 用 weak 指向的对象内存地址作为 key，当此对象的引用计数为0的时候会调用对象的 dealloc 方法， 假设 weak 指向的对象内存地址是a，那么就会以a为key，在这个 weak hash表中搜索，找到所有以a为key的 weak 对象，从而设置为 nil。</p>
+    </div>
+
+    <script>
+        var d1 = document.getElementById('d1');
+        console.log(d1.attributes);
+        // d1.attributes[0]
+
+        // 设置属性的值
+        d1.setAttribute('nl', '123');
+        console.log(d1.getAttribute('class'));
+
+        // 删除属性
+
+        d1.removeAttribute('nl');
+    </script>
+</body>
+
+</html>

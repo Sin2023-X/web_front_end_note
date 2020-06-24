@@ -23,6 +23,14 @@
         };
 
         var m1 = object(m);
+        console.log(m1.friends);
+        m1.age = 20;
+        /*
+            优点：
+                不需要使用new构造函数就可以直接构造另外其他对象
+            缺点：
+                所有构造出来的实例会共享原型对象上的引用类型属性
+        */
     </script>
 </body>
 

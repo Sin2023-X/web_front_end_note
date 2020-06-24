@@ -13,6 +13,14 @@
             this.age = age;
             this.name = name;
         }
+
+        Cat.prototype.run = function() {
+            console.log(this.name + ' running...');
+
+        };
+
+        var c1 = new Cat(19, 'Dom');
+        var c2 = new Cat(9, 'Tom');
     </script>
 </body>
 
