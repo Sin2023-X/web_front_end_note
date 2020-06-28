@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-自动添加li标签的效果案例</title>
+</head>
+
+<body>
+    <input type="button" value="添加" id="btnAdd">
+    <ul class="list"></ul>
+
+    <script>
+        var index = 1;
+
+        function addLiEvent() {
+            var ul = document.querySelector('.list');
+            ul.innerHTML += '<li>' + index + '</li>';
+            index++;
+        }
+        var btn = document.querySelector('#btnAdd');
+
+        btn.addEventListener('click', addLiEvent); //ie8不支持
+    </script>
+</body>
+
+</html>

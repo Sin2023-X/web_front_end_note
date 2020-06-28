@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20-事件绑定兼容处理</title>
+</head>
+
+<body>
+    <input type="button" value="点击" id="btn">
+
+    <script>
+        // 20-事件绑定兼容处理
+        // 兼容IE和其他浏览器
+        function btnEventHandler() {
+            alert('btn ok');
+        }
+        var btn = document.querySelector('#btn');
+        if (btn.addEventListener) {
+            btn.addEventListener('click', btnEventHandler);
+        } else {
+            btn.attachEvent('onclick', btnEventHandler);
+        }
+    </script>
+</body>
+
+</html>

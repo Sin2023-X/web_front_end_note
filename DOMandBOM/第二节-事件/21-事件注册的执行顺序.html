@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21-事件注册的执行顺序</title>
+</head>
+
+<body>
+    <input type="button" value="点击" id="btn">
+
+    <script>
+        var btn = document.querySelector('#btn');
+        // DOM2 的绑定事件的方式
+
+        if (btn.addEventListener) {
+            btn.addEventListener('click', function() {
+                alert('DOM -2 -1');
+            });
+            btn.addEventListener('click', function() {
+                alert('DOM -2 -2');
+            });
+            btn.addEventListener('click', function() {
+                alert('DOM -2 -3');
+            });
+        } else {
+            btn.attachEvent('onclick', function() {
+                alert('DOM ie-2 -1');
+            });
+            btn.attachEvent('onclick', function() {
+                alert('DOM ie-2 -2');
+            });
+            btn.attachEvent('onclick', function() {
+                alert('DOM ie-2 -3');
+            });
+        }
+
+        // DOM0 的绑定事件的方式 
+        btn.onclick = function() {
+            alert('DOM - 0');
+        }
+    </script>
+</body>
+
+</html>
