@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12-代码的方式绑定事件</title>
+</head>
+
+<body>
+    <div id="tm">从架构视角来看，秒杀系统本质是一个高性能、高一致、高可用的三高系统。而打造并维护一个超大流量的秒杀系统需要进行哪些关注，就是本文讨论的话题。</div>
+    <script>
+        var d = document.getElementById('tm');
+        d.onclick = function() {
+            alert(this.innerHTML);
+        };
+    </script>
+</body>
+
+</html>

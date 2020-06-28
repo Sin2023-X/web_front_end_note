@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14-事件流</title>
+    <style>
+        div {
+            border: 1px solid #ccc;
+        }
+        
+        .parent {
+            height: 200px;
+            width: 200px;
+            padding: 30px;
+            background-color: #c03;
+        }
+        
+        .child {
+            width: 100px;
+            height: 100px;
+            background-color: #90c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        我是父标签
+        <div class="child">我是子标签</div>
+    </div>
+    <script>
+        // 14-事件流
+        // 事件冒泡：点击了子标签的时候，父标签绑定的点击时间也会被执行。
+
+        // 给父元素绑定一个点击事件，点击子元素看是否响应方法
+
+        var pd = document.querySelector('.parent');
+        pd.onclick = function() {
+            alert('this is parent');
+        };
+    </script>
+</body>
+
+</html>

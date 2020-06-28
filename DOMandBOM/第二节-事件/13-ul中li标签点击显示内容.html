@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13-ul中li标签点击显示内容</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>内容他1</li>
+        <li>内容他2</li>
+        <li>内容他3</li>
+        <li>内容他4</li>
+        <li>内容他5</li>
+    </ul>
+    <script>
+        // 13-ul中li标签点击显示内容
+        var liArr = document.querySelectorAll('#list li');
+
+        function alertContent() {
+            alert(this.innerHTML);
+        }
+
+        liArr.forEach(function(item) {
+            item.onclick = alertContent;
+        });
+    </script>
+</body>
+
+</html>

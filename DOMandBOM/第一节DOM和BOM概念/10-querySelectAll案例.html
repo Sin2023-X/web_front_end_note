@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-querySelectAll案例</title>
+</head>
+
+<body>
+    <p>我是内容1</p>
+    <p class="tm">我是内容2</p>
+    <p class="tm">我是内容3</p>
+
+    <script>
+        // 10-querySelectAll案例
+        // 把页面中所有的p标签包含tm样式类的标签选取出来
+        var arr = document.querySelectorAll('p.tm');
+        // arr是一个NodeList接口的实例. NodeList原型是Object.prototype
+        console.log(arr);
+
+        // forEach 接受一个函数进行对数组中的元素进行处理。
+        // 函数第一个参数是数组元素，第二个参数是元素对应的索引
+        arr.forEach(function(elem, index) {
+            console.log(index + ' : ' + elem.innerHTML);
+
+        });
+    </script>
+</body>
+
+</html>

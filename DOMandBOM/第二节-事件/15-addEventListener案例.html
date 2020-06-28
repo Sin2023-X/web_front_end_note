@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-addEventListener案例</title>
+    <style>
+        div {
+            border: 1px solid #ccc;
+            background-color: #c0d;
+        }
+        
+        .parent {
+            width: 200px;
+            height: 200px;
+            background-color: #f03;
+        }
+        
+        .child {
+            width: 100px;
+            height: 100px;
+            background-color: #0dc;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="button" value="点击" id="btn">
+
+    <div class="parent">
+        父div
+        <div class="child">子div</div>
+    </div>
+
+    <script>
+        var btn = document.querySelector('#btn');
+
+        // 第一种：DOM0的绑定方式
+        // btn.onclick = function() {
+
+        // };
+        // 缺点： 1、不能绑定多个事件处理程序。2、只能在冒泡阶段执行事件响应程序
+
+        // 第二种：传递三个参数
+        // 1、事件类型字符串不带on。2、事件处理程序。3、是否在捕获阶段执行事件处理程序,默认：false
+        btn.addEventListener('click', function() {
+            alert('按钮被点击了1');
+        }, false);
+        // 给一个按钮的点击事件绑定了两个事件处理程序
+        btn.addEventListener('click', function() {
+            alert('按钮被点击了2');
+        });
+        // DOM2绑定事件的方式，事件执行顺序是注册的事件处理程序顺序。
+
+        // 控制在捕获阶段执行事件响应程序
+        var parentDiv = document.querySelector('.parent');
+        var childDiv = document.querySelector('.child');
+
+        parentDiv.addEventListener('click', function() {
+            alert('父div');
+        }, false);
+
+        childDiv.addEventListener('click', function() {
+            alert('子DIV');
+        }, true);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-querySelector方法详解</title>
+</head>
+
+<body>
+    <div class="c1">first dic</div>
+    <p class="tm">化肥会挥发</p>
+    <h3 id="tmd">黑化肥发灰，灰化肥发黑</h3>
+
+    <script>
+        // querySelector可以接受一个css的选择器字符串作为参数，来搜索页面中的标签元素
+        // ie8以上可用
+        var element1 = document.querySelector('.c1');
+        console.dir(element1);
+        var p1 = document.querySelector('.tm');
+        var h = document.querySelector('#tmd');
+        var p2 = document.querySelector('p');
+    </script>
+</body>
+
+</html>

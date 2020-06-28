@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16-五角星点击案例</title>
+
+    <style>
+        span {
+            font-size: 30;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wjx-wrap">
+        <span>⭐️</span>
+        <span>⭐️</span>
+        <span>⭐️</span>
+        <span>⭐️</span>
+        <span>⭐️</span>
+    </div>
+
+    <script>
+        function clickEvent() {
+            spanArr.forEach(function(item) {
+                item.innerHTML = '⭐️';
+            });
+            this.innerHTML = '🐍';
+        }
+        var spanArr = document.querySelectorAll('.wjx-wrap span');
+        spanArr.forEach(function(item) {
+            item.addEventListener('click', clickEvent);
+        });
+    </script>
+</body>
+
+</html>
