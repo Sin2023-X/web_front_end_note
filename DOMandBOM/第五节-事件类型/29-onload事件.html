@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29-onload事件</title>
+</head>
+
+<body>
+    <script>
+        // 页面的内容全部加载完成后才会触发此事件
+        window.onload = function() {
+            var btn = document.getElementById('btn');
+            btn.onclick = function() {
+                alert('ok');
+            };
+        }
+    </script>
+
+    <input type="button" value="点击" id="btn">
+
+</body>
+
+</html>

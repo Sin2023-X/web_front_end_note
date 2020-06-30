@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24-阻止事件捕获</title>
+    <style>
+        #pDiv {
+            border: 1px solid #902;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="pDiv"><input type="button" value="按钮" id="btn"></div>
+    <script>
+        var pDiv = document.getElementById('pDiv');
+        var btn = document.getElementById('btn');
+
+        pDiv.addEventListener('click', function(e) {
+            alert('div');
+            e.stopPropagation();
+        }, true);
+
+        btn.addEventListener('click', function(e) {
+            alert('btn');
+        }, true);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40-div拖动案例.html</title>
+    <style>
+        html,
+        body,
+        div {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background-color: silver;
+        }
+        
+        .box {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+            border: 1px solid #ccc;
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box">
+
+    </div>
+
+    <script src="../js/documentReady.js"></script>
+    <script>
+        (function() {
+            document.myReady(function() {
+                var box = document.getElementById('box');
+                var flag = false;
+
+                var offsetX, offsetY;
+                box.onmousedown = function(e) {
+                    flag = true;
+                    offsetX = e.offsetX;
+                    offsetY = e.offsetY;
+                };
+
+                document.onmousemove = function(e) {
+                    if (flag) {
+                        e = e || window.event;
+                        // 鼠标相对于页面的坐标
+                        var pageX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+                        var pageY = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+                        // js拿不到css设置的 left 和 top
+                        box.style.left = (pageX - offsetX) + 'px';
+                        box.style.top = (pageY - offsetY) + 'px';
+
+                    }
+                };
+
+                box.onmouseup = function() {
+                    flag = false;
+                };
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>36-文本框提示消息案例</title>
+</head>
+
+<body>
+    <input type="text" name="" id="" placeholder="请输入用户名">
+    <input type="text" name="" id="txt2" value="请输入用户名">
+
+
+    <script src="../js/documentReady.js"></script>
+    <script>
+        document.myReady(function() {
+            var txt2 = document.getElementById('txt2');
+            txt2.style.color = 'lightgray';
+            txt2.onfocus = function() {
+                if (txt2.value == '请输入用户名') {
+                    txt2.value = '';
+                    txt2.style.color = 'black';
+                }
+            }
+            txt2.onblur = function() {
+                if (txt2.value == '') {
+                    txt2.value = '请输入用户名';
+                    txt2.style.color = 'lightgray';
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

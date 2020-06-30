@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35-焦点事件</title>
+</head>
+
+<body>
+    <input type="text" name="" id="txt1">
+    <input type="text" name="" id="txt2">
+    <input type="button" value="txt2获得焦点" id="btnFocus2">
+
+    <script src="../js/documentReady.js"></script>
+    <script>
+        document.myReady(function() {
+            var txt1 = document.getElementById('txt1');
+            var txt2 = document.getElementById('txt2');
+            txt1.onfocus = function() {
+                console.log('获得焦点');
+            };
+
+            txt1.onblur = function() {
+                console.log('失去焦点');
+            };
+
+            var btnFocus2 = document.getElementById('btnFocus2');
+            btnFocus2.onclick = function() {
+                // txt2 获得焦点
+                document.getElementById('txt2').focus();
+            };
+
+            // 实现：txt2不能为空
+            txt2.onblur = function() {
+                // 判断txt2的value是否为空
+                if (!txt2.value) {
+                    // 如果为空让txt2继续获得焦点
+                    txt2.focus();
+                    txt2.style.borderColor = 'red';
+                } else {
+                    txt2.style.borderColor = '';
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37-文本框弹出提示选择框案例</title>
+    <style>
+        body,
+        div,
+        input,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .search-box {
+            margin: 50px auto;
+            width: 300px;
+            height: 400px;
+            /* text-align: center; */
+            position: relative;
+        }
+        
+        .list {
+            border: 1px solid #ddd;
+            width: 198px;
+            display: none;
+            position: absolute;
+        }
+        
+        .list li {
+            height: 25px;
+            line-height: 25px;
+        }
+        
+        .list li:hover {
+            background-color: #eee;
+            cursor: pointer;
+        }
+        
+        .txt-search {
+            border-width: 2px;
+            width: 191px;
+            padding-left: 5px;
+            line-height: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-box">
+        <input type="text" name="" id="txt-search" class="txt-search">
+        <ul class="list" id="search-list">
+            <li>历史记录1</li>
+            <li>历史记录2</li>
+            <li>历史记录3</li>
+            <li>历史记录4</li>
+            <li>历史记录5</li>
+        </ul>
+    </div>
+
+    <script src="../js/documentReady.js"></script>
+    <script>
+        (function() {
+            var txtSearch = document.getElementById('txt-search');
+            var list = document.getElementById('search-list');
+            txtSearch.onfocus = function() {
+                list.style.display = 'block';
+            };
+            txtSearch.onblur = function() {
+                list.style.display = 'none';
+            };
+
+            var lis = document.querySelectorAll('#search-list li');
+            lis.forEach(function(item) {
+                item.onclick = liClick;
+                // 点击事件和失去焦点事件的执行顺序：
+                // 第一步：限制性mousedown事件，事件中会让被点击的元素获得焦点，那么原来获得焦点的元素就会失去焦点
+                // mousedown -> 原来获得焦点元素blur -> 当前元素mouseup -> click事件执行
+                // 如果mousedown事件中，阻止了默认行为，那么此元素不会获得焦点
+
+                item.onmousedown = mousedownStopBlur;
+            });
+
+
+            function mousedownStopBlur() {
+                return false;
+            }
+
+            function liClick() {
+                txtSearch.value = this.innerHTML;
+                txtSearch.blur();
+            }
+        })();
+    </script>
+</body>
+
+</html>

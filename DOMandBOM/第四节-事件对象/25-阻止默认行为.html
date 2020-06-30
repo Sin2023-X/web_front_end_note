@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25-阻止默认行为</title>
+</head>
+
+<body>
+    <a href="http://aicoder.com" id="linkTo">不知道是啥</a>
+
+    <script>
+        var linkTo = document.getElementById('linkTo');
+        linkTo.onclick = function(e) {
+            e = e || window.event;
+            // 标准浏览器
+            if (e.preventDefault) {
+                e.preventDefault(); // 阻止默认行为
+            } else {
+                e.returnValue = false; // 兼容ie6-8
+            }
+
+            return false; // 返回值false，也可以实现阻止默认行为的效果
+        };
+    </script>
+</body>
+
+</html>

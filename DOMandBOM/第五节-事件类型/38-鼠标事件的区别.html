@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>38-鼠标时间的区别</title>
+    <style>
+        div {
+            border: 1px solid #c09;
+            cursor: pointer;
+        }
+        
+        p {
+            margin: 20px;
+            border: 1px solid #20a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box">
+        <p>上海新增4例确诊病例</p>
+        <p>上海新增4例确诊病例</p>
+        <p>上海新增4例确诊病例</p>
+        <p>上海新增4例确诊病例</p>
+        <p>上海新增4例确诊病例</p>
+    </div>
+
+    <script src="../js/documentReady.js"></script>
+    <script>
+        (function() {
+            document.myReady(function() {
+                var box = document.querySelector('#box');
+                box.onmousedown = function() {
+                    console.log('mouse down !');
+                };
+
+                box.onmouseup = function() {
+                    console.log('mouse up !');
+                };
+
+                // 如果鼠标不是在当前元素上up的，不会执行click
+                box.onclick = function() {
+                    console.log('click !');
+                };
+
+                // 当鼠标进入元素范围后，只执行一次，不会冒泡
+                box.onmouseenter = function() {
+                    console.log('enter');
+                };
+
+                // 离开元素范围后，只执行一次，不会冒泡
+                box.onmouseleave = function() {
+                    console.log('leave !');
+                };
+
+                // 在元素或者子元素上面的时候会触发，会冒泡
+                box.onmouseover = function() {
+                    console.log('mouse over !');
+                };
+
+                // 离开子元素或者自身的时候都会触发，会冒泡
+                box.onmouseout = function() {
+                    console.log('mouse out !');
+                };
+
+                // 鼠标在元素内部移动时重复触发
+                box.onmousemove = function() {
+                    console.log('mouse move !');
+                };
+            });
+        })();
+    </script>
+</body>
+
+</html>

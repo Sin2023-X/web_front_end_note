@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>39-自定义鼠标样式案例</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./img/butterfly.gif" alt="" width="50" height="50" id="butterfly">
+
+    <script src="../js/documentReady.js"></script>
+    <script>
+        (function() {
+            document.myReady(function() {
+                // 给鼠标添加一个mousemove事件
+                document.onmousemove = function(e) { // e: MouseEvent
+                    e = e || window.event;
+                    // 获取鼠标移动的位置在整个页面的坐标
+                    var pageX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+                    var pageY = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+
+                    // 给固定定位的图片设置left和top
+                    var img = document.getElementById('butterfly');
+                    img.style.left = (pageX - 25) + 'px';
+                    img.style.top = (pageY - 25) + 'px';
+
+                };
+            });
+        })();
+    </script>
+</body>
+
+</html>

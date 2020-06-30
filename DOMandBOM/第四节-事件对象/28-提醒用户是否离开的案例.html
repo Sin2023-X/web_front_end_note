@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>28-提醒用户是否离开的案例</title>
+</head>
+
+<body>
+    <form action="http://aicoder.com">
+        用户名：<input type="text" name="" id="txtName">
+        <hr>
+        <input type="submit" value="提交" id="btnSub">
+    </form>
+
+
+    <script>
+        window.onbeforeunload = function(e) {
+            return '是否要离开？'; // 返回一个字符串，浏览器在跳转其他页面或者关闭时会提醒用户
+        }
+
+        var btnSub = document.getElementById('btnSub');
+        var txtName = document.getElementById('txtName');
+
+        // btnSub.onclick = function(e) {
+        //     // 取消默认操作（在dom0zhong）可以使用return false；
+        //     // 判断用户名的文本框是否为空
+        //     if (!txtName.value) {
+        //         alert('用户名不能为空!');
+        //         return false;
+        //     }
+
+        // };
+
+        if (btnSub.addEventListener) {
+            btnSub.addEventListener('click', btnSubHandler);
+        } else {
+            btnSub.attachEvent('onclick', btnSubHandler);
+        }
+
+        function btnSubHandler(e) {
+            e = e || window.event;
+            if (!txtName.value) {
+                alert('用户名不能为空!');
+                if (e.preventDefault) {
+                    e.preventDefault(); // 标准浏览器
+                } else {
+                    e.returnValue = false; // ie8
+                }
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>
