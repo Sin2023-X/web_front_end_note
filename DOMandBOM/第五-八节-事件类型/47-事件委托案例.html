@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>47-事件委托案例</title>
+    <script src="../js/documentReady.js"></script>
+    <script src="../js/EventUtil.js"></script>
+    <style>
+        ul {
+            list-style: none;
+        }
+        
+        .list {
+            width: 200px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="list" id="list">
+        <li>内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+        <li>内容4</li>
+        <li>内容5</li>
+        <li>内容6</li>
+        <li>内容7</li>
+        <li>内容8</li>
+        <li>内容9</li>
+        <li>内容10</li>
+        <li>内容11</li>
+        <li>内容12</li>
+        <li>内容13</li>
+        <li>内容14</li>
+        <li>内容15</li>
+        <li>内容16</li>
+        <li>内容17</li>
+        <li>内容18</li>
+        <li>内容19</li>
+        <li>内容20</li>
+    </ul>
+
+
+    <script>
+        // list中的li标签的个数是不确定的，是可能动态添加，也可能动态减少
+        (function() {
+            document.myReady(function() {
+                var ul = document.getElementById('list');
+                var liArr = ul.getElementsByTagName('li');
+                // 循环绑定
+                for (var i = 0; i < liArr.length; i++) {
+                    // 产生的问题：
+                    // 1、动态添加的li标签，没有绑定上事件处理程序
+                    // 2、li标签非常多的时候，产生很多绑定事件的信息，浪费大量的内存和cpu计算
+                }
+                // 解决上面的问题：
+                // 1、事件室友冒泡的
+                // 2、弹出事件源对象的内容 e.target || e.srcElement
+                // 3、getElementsByTagName方法返回的伪数组，是动态的，会自动更新
+                EventUtil.addEvent(ul, "click", function(e) {
+                    // 子元素被点击的时候，也会冒泡到这
+                    var target = EventUtil.getTarget(e);
+                    // 如果点击了父容器自己，就什么都不干
+                    if (target == ul) {
+                        console.log('ul');
+                        return;
+                    }
+                    // 如果点击的是子元素
+                    alert(target.innerHTML);
+                });
+
+            }); // my ready
+        })();
+    </script>
+</body>
+
+</html>

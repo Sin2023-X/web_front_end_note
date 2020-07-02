@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>44-文本框获得焦点案例</title>
+    <script src="../js/documentReady.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div id="box">
+            <input type="text" id="txt1">
+            <input type="text" id="txt2">
+            <input type="text" id="txt3">
+        </div>
+        <input type="button" value="提交" id="btn">
+    </div>
+
+    <script>
+        (function() {
+            document.myReady(function() {
+                var inputs = document.querySelectorAll('#box input');
+                var btn = document.getElementById('btn');
+                inputs.forEach(function(item, index) {
+                    (function(i) {
+                        item.onkeyup = function(e) {
+                            if (this.value.length >= 3) {
+                                console.log('s');
+
+                                if (i <= 1) {
+                                    inputs[i + 1].focus();
+                                } else {
+                                    this.blur();
+                                }
+                            }
+                        }
+                    })(index);
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>49-动态创建菜单案例</title>
+    <script src="../js/EventUtil.js"></script>
+    <script src="../js/documentReady.js"></script>
+</head>
+
+<body>
+    <ul id="menu"></ul>
+
+    <script>
+        (function() {
+            var data = [{
+                name: '首页',
+                url: '/index.html',
+                id: 1
+            }, {
+                name: '关于',
+                url: '/a bou t.html',
+                id: 2
+            }, {
+                name: '产品',
+                url: '/product.html',
+                id: 3
+            }, {
+                name: '案例',
+                url: '/use case.html',
+                id: 4
+            }, {
+                name: '联系',
+                url: '/contact.html',
+                id: 5
+            }];
+
+            // 页面加载完成后动态加载li标签数据
+            document.myReady(function() {
+                loadMenu();
+
+            }); // myReady
+
+            // 加载菜单数据
+            function loadMenu() {
+                var menu = document.getElementById('menu');
+                for (var i = 0; i < data.length; i++) {
+                    var liElement = document.createElement('li');
+                    liElement.setAttribute('id', 'menu' + data[i].id);
+                    var aElement = document.createElement('a');
+                    aElement.setAttribute('href', data[i].url);
+                    aElement.innerHTML = data[i].name;
+                    liElement.appendChild(aElement);
+                    menu.appendChild(liElement);
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>

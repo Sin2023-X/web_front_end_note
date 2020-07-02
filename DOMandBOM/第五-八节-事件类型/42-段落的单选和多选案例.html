@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>42-段落的单选和多选案例</title>
+    <style>
+        .pbox p {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pBox" id="pBox">
+        <p>段落1</p>
+        <p>段落2</p>
+        <p>段落3</p>
+        <p>段落4</p>
+        <p>段落5</p>
+    </div>
+
+    <script src="../js/documentReady.js"></script>
+    <script>
+        (function() {
+            document.myReady(function() {
+                var pBox = document.getElementById('pBox');
+                // 获取所有p标签， pList是个伪数组
+                var pList = pBox.getElementsByTagName('p');
+
+                for (var i = 0; i < pList.length; i++) {
+                    pList[i].onclick = pClickHandler;
+                }
+
+                function pClickHandler(e) {
+                    e = e || window.event;
+                    if (e.altKey) {
+                        console.log('duo xuan');
+                        this.style.backgroundColor = 'silver';
+                    } else {
+                        for (var i = 0; i < pList.length; i++) {
+                            if (this == pList[i]) {
+                                this.style.backgroundColor = 'silver';
+                            } else {
+                                pList[i].style.backgroundColor = 'white';
+                            }
+                        }
+
+                    }
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

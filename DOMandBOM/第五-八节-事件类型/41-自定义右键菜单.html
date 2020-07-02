@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>41-自定义右键菜单</title>
+    <style>
+        html,
+        body,
+        h1,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .menu {
+            border: 1px solid saddlebrown;
+            position: absolute;
+            width: 100px;
+            display: none;
+        }
+        
+        .menu .menu-item {
+            border: 1px solid silver;
+            cursor: pointer;
+            padding: 5px;
+        }
+        
+        .menu-item:hover {
+            background-color: slategrey;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>右键菜单</h1>
+    <ul class="menu" id="menu">
+        <li class="menu-item">内容1</li>
+        <li class="menu-item">内容2</li>
+        <li class="menu-item">内容3</li>
+        <li class="menu-item">内容4</li>
+        <li class="menu-item">内容5</li>
+    </ul>
+
+    <script src="../js/documentReady.js"></script>
+    <script>
+        (function() {
+            document.myReady(function() {
+                // 在标准DOM模型中，按下鼠标后，event.button 有三个值：
+                // 0（左键），1（滚轮），2（右键）
+                // ie中不太一样
+                var ul = document.getElementById('menu');
+                document.onmousedown = function(e) {
+                    e = e || window.event;
+                    if (e.button == 2 || e.button == 6) {
+                        ul.style.display = 'block';
+                        // 获取鼠标位置
+                        var x = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);
+                        var y = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);
+
+                        ul.style.left = (x + 5) + 'px';
+                        ul.style.top = (y + 5) + 'px';
+                    } else {
+                        ul.style.display = 'none';
+                    }
+                };
+
+                // 在整个文档中屏蔽浏览器的右键菜单
+                document.oncontextmenu = function(e) {
+                    // 阻止默认行为就可以阻止浏览器弹出右键菜单
+                    return false;
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

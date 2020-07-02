@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>45-文本框change事件</title>
+    <script src="../js/documentReady.js"></script>
+</head>
+
+<body>
+    <div>
+        用户名：<input type="text" id="txtName">
+        <input type="button" value="提交">
+    </div>
+    <script>
+        (function() {
+            document.myReady(function() {
+                var txtName = document.getElementById('txtName');
+                // 文本框内容发生改变才会触发
+                txtName.onchange = function() {
+                    // 判断文本框的长度为6-8，如果不是提示，并让文本框继续获得焦点
+                    if (this.value.length > 8 || this.value.length < 6) {
+                        alert('用户名长度为6-8个字符，请重新输入');
+                        txtName.focus();
+                    }
+                }; // end for onchange
+            }); // end for myReady
+        })();
+    </script>
+</body>
+
+</html>

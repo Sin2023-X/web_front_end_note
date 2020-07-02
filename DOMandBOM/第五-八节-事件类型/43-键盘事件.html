@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>43-键盘事件</title>
+    <script src="../js/documentReady.js"></script>
+</head>
+
+<body>
+    <input type="text" name="" id="txt">
+
+    <script>
+        (function() {
+            document.myReady(function() {
+                var txt = document.getElementById('txt');
+                // 键盘上的键只要被按下就会出发keydown事件
+                // keydown事件可以应用于所有dom对象。比如p标签，div标签
+                // 可以监听到功能键的按下事件，比如：ctrl shift alt 方向键 f1 esc
+                // 如果一直按着不放，会一直触发
+                txt.onkeydown = function(e) {
+                    e = e || window.event;
+                    console.log("onkeydown ---> keyCode : " + e.keyCode + ' charCode : ' + e.charCode);
+
+                }
+
+                // 可以一直触发事件，智能监听 可打印字符键（退格键不行）
+                txt.onkeypress = function(e) {
+                    e = e || window.event;
+                    console.log("onkeypress ---> keyCode : " + e.keyCode + ' charCode : ' + e.charCode);
+                }
+
+                // 跟keydown一样，不区分大小写，按下的一律按照大写字母的编码
+                txt.onkeyup = function(e) {
+                    e = e || window.event;
+                    console.log("onkeyup ---> keyCode : " + e.keyCode + ' charCode : ' + e.charCode);
+
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>
