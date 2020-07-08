@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>53-动态创建下拉列表</title>
+    <script src="../js/EventUtil.js"></script>
+    <script src="../js/documentReady.js"></script>
+</head>
+
+<body>
+    <select name="sel" id="sel"></select>
+
+    <script>
+        (function() {
+            var data = [{
+                name: '北京',
+                value: 1
+            }, {
+                name: '上海',
+                value: 2
+            }, {
+                name: '天津',
+                value: 3
+            }, {
+                name: '重庆',
+                value: 4
+            }];
+
+            document.myReady(function() {
+                initSel(data);
+                var sel = document.getElementById('sel');
+                EventUtil.addEvent(sel, 'change', function(e) {
+                    var selOpt = this.options[this.selectedIndex];
+                    console.log(selOpt.value);
+                    console.log(selOpt.text);
+
+                    console.log('当前值： ' + this.value);
+
+                });
+            });
+
+            // 初始化下拉列表
+            function initSel(data) {
+                var sel = document.getElementById('sel');
+                // <option value="1">北京</option>
+                for (var i = 0; i < data.length; i++) {
+                    var opt = document.createElement('option');
+                    opt.value = data[i].value;
+                    opt.text = data[i].name;
+                    sel.add(opt, null);
+                }
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>51-关闭消息框案例</title>
+    <style>
+        #msgBox {
+            border: 1px solid #aaa;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        
+        #msgCloseBtn {
+            background: url(./img/closeBtn.jpg) no-repeat;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="../js/documentReady.js"></script>
+    <script src="../js/EventUtil.js"></script>
+</head>
+
+<body>
+    <div id="msgBox">
+        <div id="msgCloseBtn"></div>
+    </div>
+
+    <script>
+        (function() {
+            document.myReady(function() {
+                var msgCloseBtn = document.getElementById('msgCloseBtn');
+                EventUtil.addEvent(msgCloseBtn, 'click', function(e) {
+                    this.parentNode.style.display = 'none';
+                });
+            });
+        })();
+    </script>
+</body>
+
+</html>
