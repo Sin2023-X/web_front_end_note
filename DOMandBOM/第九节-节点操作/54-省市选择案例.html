@@ -115,12 +115,43 @@
         }];
         (function() {
             document.myReady(function() {
-                initSel();
+                var proSel = document.getElementById('pro');
+
+                initSel(proSel);
+                // 绑定省的下拉列表
+                EventUtil.addEvent(proSel, 'change', function(e) {
+                    initCity();
+                });
+                initCity();
             });
 
-            function initSel() {
+            function initCity(proSel) {
+                var proSel = document.getElementById('pro');
+                var citySel = document.getElementById('city');
+                // 当省的改变时，加载省城市信息，并把城市创建出option添加到城市的select
+                var cities, proName = proSel.value;
                 for (var i = 0; i < data.length; i++) {
+                    if (data[i].name == proName) {
+                        cities = data[i].cities;
+                    }
+                }
+                // 清空之前选择省的城市信息
+                citySel.innerHTML = "";
+                for (var j = 0; j < cities.length; j++) {
+                    var optCity = document.createElement('option');
+                    optCity.value = cities[j];
+                    optCity.text = cities[j];
+                    citySel.add(optCity, null);
+                }
+            }
 
+            function initSel(proSel) {
+                for (var i = 0; i < data.length; i++) {
+                    // <option value="北京">北京</option>
+                    var opt = document.createElement('option');
+                    opt.value = data[i].name;
+                    opt.text = data[i].name;
+                    proSel.add(opt, null);
                 }
             }
         })();
